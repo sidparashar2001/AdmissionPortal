@@ -1,0 +1,33 @@
+<%- include("../partition/header.ejs") %>
+
+
+
+<section class="login-wrap mtb-40">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="login-box " style="margin-top: 18%;">
+                    <h1>Displaying <%= data.name %>'s  info</h1><hr>
+                    <div class="row d-flex justify-content-center">
+
+                        <div  class="card" style="width: 22rem ;margin: 0; height: 28rem;">
+                            <img src="/images/btech.jpg" class="card-img-top" alt="...">
+                            <div class="card-body ">
+                                <p class="studentinfo"><span class="bd">Email:</span><%= data.email %></p>
+                                <p class="studentinfo"><span class="bd">Phone No:</span><%= data.phoneno %></p>
+                                <p class="studentinfo"><span class="bd">Course:</span><%= data.courses %></p>
+                                <p class="studentinfo"><span class="bd">Address:</span><%= data.address %></p>
+                                <p class="studentinfo"><span class="bd">Gender:</span><%= data.gender %></p>
+                                <p class="studentinfo"><span class="bd">College:</span><%= data.college %></p>
+                                <p class="studentinfo"><span class="bd">Courses:</span><%= data.courses %></p>
+                                <p class="studentinfo"><span class="bd">Branch:</span><%= data.branch %></p>
+                        </div>
+                        </div>
+
+                </div>         
+            </div>
+        </div>
+    </div>
+</section>
+
+

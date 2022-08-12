@@ -1,0 +1,63 @@
+<%- include("../../views/partition/header.ejs") %>
+
+
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col">
+                <img class="registerImg" src="images/register.jpg" alt="">
+            </div>
+           
+            <div class="col">
+                <section class="login-wrap mtb-40">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col">
+                                <div class="login-box">
+                                    <h1>Registration</h1>
+
+
+
+
+
+                                    <form action="/register_student" method="post">
+                                        <div class="form-group">
+                                            <input type="text" name="name" class="form-control" placeholder="Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" name="email" class="form-control" placeholder="E-mail">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="phoneno" class="form-control"
+                                                placeholder="Phone Number">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="course" class="form-control" placeholder="Course">
+                                        </div>
+                                        <div class="form-group">
+                                           
+                                            <textarea name="address" placeholder="Address" class="form-control" rows="3"></textarea>
+                                          </div>
+
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                        <div class="form-group">
+                                            <a href="/" class="btn btn-primary">Log In</a>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+
+
+
+        </div>
+    </div>

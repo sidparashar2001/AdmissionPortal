@@ -1,0 +1,55 @@
+<%- include("../partition/header.ejs") %>
+
+
+
+<section style="margin-bottom: 4%;" class="login-wrap mtb-40 ">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md">
+                <div class="login-box" style="margin-top: 7%;">
+                    <h1>Displaying Students</h1><hr>
+                    <% var i=1 %>
+                    <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Course Name</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Phoneno</th>
+                            <th scope="col">Address</th>
+                           
+                            <th scope="col">Action</th>
+                         
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <%  data.forEach((item)=>{ %>                            
+                          <tr>
+                            <th scope="row"><%= i++ %></th>
+                            <td><%= item.courses %></td>
+                            <td><%= item.email %></td>
+                            <td><%= item.phoneno %></td>
+                            <td><%= item.address %></td>
+                           
+                            
+                            <td>
+                                <a href="/view_student/<%= item._id %>" class="btn btn-danger btn-sm">View</a>
+                                <a href="/edit_student/<%= item._id %>" class="btn btn-info btn-sm">Edit</a>
+                            </td>
+                           
+                          </tr>
+                     <%   })   %>
+                    </tbody>
+                  </table>
+                  <a href="/index" class="btn btn-info btn-sm"> ◀Dashboard</a>
+                 
+
+                    
+                </div>         
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<%- include("../partition/footer.ejs") %>

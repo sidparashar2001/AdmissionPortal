@@ -1,0 +1,128 @@
+<%- include("../../views/partition/header.ejs") %>
+
+
+
+    <div style="margin-top: 1%;" class="container">
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <img class="registerImg" src="images/bbareg.jpg" alt="">
+            </div>
+
+            <div class="col-md-8">
+                <section class="login-wrap mtb-40">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col">
+                                <div style="background-color: #333;color:#fff" class="login-box">
+                                    <h1>Registration for BBA</h1>
+
+
+
+
+
+                                    <form action="/register_student" method="post">
+                                        <div class="form-row">
+                                            <input type="hidden" name="user_id" value="<%= id %>">
+                                            <div class="form-group col-md-6">
+                                                <input type="text" name="name" value="<%= n %>" class="form-control"
+                                                    placeholder="Name">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <input type="email" name="email" value="<%= e %>" class="form-control"
+                                                    placeholder="E-mail">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <input type="text" name="phoneno" class="form-control"
+                                                    placeholder="Phone Number">
+                                            </div>
+
+                                            <div class="form-group col-md-12">
+
+                                                <textarea name="address" placeholder="Address" class="form-control"
+                                                    rows="3"></textarea>
+                                            </div>
+
+
+
+                                            <div class="form-group col-md-6">
+                                                Gender:
+                                                <div class="form-check">
+
+                                                    <input class="form-check-input" type="radio" name="gender"
+                                                        id="exampleRadios1" value="Male" checked>
+                                                    <label class="form-check-label" for="exampleRadios1">
+                                                        Male
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="gender"
+                                                        id="exampleRadios2" value="Female">
+                                                    <label class="form-check-label" for="exampleRadios2">
+                                                        Female
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label class="col-md-3">College</label>
+                                                <div class="col-md-9">
+                                                    <select name="college" class="form-control" id="">
+
+                                                        <option value="">Select College</option>
+
+                                                        <option>Prestige</option>
+                                                        <option>ITM</option>
+                                                        <option>Jiwaji</option>
+                                                        <option>DAV</option>
+                                                        <option>Symbiosis</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        
+
+
+                                        <div class="form-group col-md-6">
+                                            <label class="col-md-3">Courses</label>
+                                            <div class="col-md-9">
+                                                <select name="courses" class="form-control" id="">
+
+                                                    <option value="">Select Category</option>
+
+                                                    <option>BBA</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-md-3">Branch</label>
+                                            <div class="col-md-9">
+                                                <select name="branch" class="form-control" id="">
+
+                                                    <option value="">Select Branch</option>
+
+                                                    <option>BBA</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </section>
+        </div>
+
+
+        <%- include("../../views/partition/footer.ejs") %>
+
+    </div>
+    </div>
