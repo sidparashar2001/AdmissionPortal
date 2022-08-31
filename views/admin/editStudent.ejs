@@ -1,0 +1,130 @@
+<%- include("../../views/partition/header.ejs") %>
+
+
+
+    <div style="margin-top: 1%;" class="container">
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <img class="registerImg" src="/images/update.jpg" alt="">
+            </div>
+
+            <div class="col-md-8">
+                <section class="login-wrap mtb-40">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col">
+                                <div style="background-color: #333;color:#fff" class="login-box">
+                                    <h1>Edit Registration</h1>
+
+
+
+
+                                    <form action="/admin/update_student/<%= data._id %>" method="post">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <input type="text" value="<%= data.name %>" name="name"
+                                                    class="form-control" placeholder="Name">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <input type="email" value="<%= data.email %>" name="email"
+                                                    class="form-control" placeholder="E-mail">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <input type="text" value="<%= data.phoneno %>" name="phoneno"
+                                                    class="form-control" placeholder="Phone Number">
+                                            </div>
+
+                                            <div class="form-group col-md-12">
+
+                                                <textarea name="address" placeholder="Address" class="form-control"
+                                                    rows="3"><%= data.address %></textarea>
+                                            </div>
+
+                                            <div class="form-group col-md-6">
+
+                                                <div class="form-check">
+                                                    <!-- Gender -->
+                                                    <input class="form-check-input" type="radio" name="gender"
+                                                        id="exampleRadios1" value="Male" <%=data.gender=='Male'
+                                                        ? 'checked' : '' %> >
+                                                    <label class="form-check-label" for="exampleRadios1">
+                                                        Male
+                                                    </label>
+                                                </div>
+                                                <div class="form-check ">
+                                                    <input class="form-check-input" type="radio" name="gender"
+                                                        id="exampleRadios2" value="Female" <%=data.gender=='Female'
+                                                        ? 'checked' : '' %>>
+                                                    <label class="form-check-label" for="exampleRadios2">
+                                                        Female
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            
+                                            <div class="form-group col-md-12">
+                                                <label class="col-md-5">College</label>
+                                                <div class="col-md-9">
+                                                    <select name="college" class="form-control" id="">
+
+                                                        <option value="">Select College</option>
+
+                                                        <option <%=data.college=='ITM' ? 'selected' : '' %>>ITM</option>
+                                                        <option <%=data.college=='MITS' ? 'selected' : '' %>>MITS
+                                                        </option>
+                                                        <option <%=data.college=='Amity' ? 'selected' : '' %>>Amity
+                                                        </option>
+                                                        <option <%=data.college=='RJIT' ? 'selected' : '' %>>RJIT
+                                                        </option>
+                                                        <option <%=data.college=='IPS' ? 'selected' : '' %>>IPS</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label class="col-md-3">Courses</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" readonly name="courses"
+                                                        value="<%= data.courses %>">
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label class="col-md-3">Branch</label>
+                                                <div class="col-md-9">
+                                                    <select name="branch" class="form-control" id="">
+
+                                                        <option value="">Select Branch</option>
+
+                                                        <option <%=data.branch=='CSE' ? 'selected' : '' %>>CSE</option>
+                                                        <option <%=data.branch=='IT' ? 'selected' : '' %>>IT</option>
+
+                                                        <option <%=data.branch=='EE' ? 'selected' : '' %>>EE</option>
+                                                        <option <%=data.branch=='EC' ? 'selected' : '' %>>EC</option>
+                                                        <option <%=data.branch=='ME' ? 'selected' : '' %>>ME</option>
+                                                        <option <%=data.branch=='CE' ? 'selected' : '' %>>CE</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group mb-0">
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                            </div>
+
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+
+
+
+        </div>
+    </div>
+    <%- include("../../views/partition/footer.ejs") %>

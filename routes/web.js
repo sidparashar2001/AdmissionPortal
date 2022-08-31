@@ -2,11 +2,21 @@ const express=require("express")
 const UserController = require("../Controllers/UserController")
 const IndexController = require("../Controllers/user/IndexController")
 const auth = require("../middleware/AuthMiddleware")
+const AuthRole = require("../middleware/AuthRole")
 const AdminController = require("../Controllers/AdminController")
+
 const router=express.Router()
 
+
 // Admin Controller
-router.get("/admin/dashboard",auth,AdminController.dashboard)
+router.get("/admin/dashboard",auth,AuthRole("admin"),AdminController.dashboard)
+router.get("/delete_student/:id",AdminController.deleteUser)
+router.get("/admin/edit_student/:id",auth,AdminController.editUser)
+router.post("/admin/update_student/:id",auth,AdminController.updateUser)
+
+router.get("/admin/edit/:id",auth,AdminController.editAdmin)
+router.post("/admin/update/:id",AdminController.updateAdmin)
+router.post("/admin/update_status/:id",AdminController.updateStatus)
 
 
 

@@ -75,14 +75,14 @@ class UserController {
                     // The first password is coming from line 57
                     const isMatched = await bcrypt.compare(password, user.password)
                     if ((user.email === email) && isMatched) {
-                        if(user.role==1){ //User Login
+                        if(user.role=="user"){ //User Login
 
                             const token=await user.generateAuthToken()
                             // console.log(token)
                             res.cookie('jwt',token)
                             res.redirect("/index")
                         }
-                        if(user.role==0){ //Admin Login
+                        if(user.role=="admin"){ //Admin Login
                             const token=await user.generateAuthToken()
                             // console.log(token)
                             res.cookie('jwt',token)

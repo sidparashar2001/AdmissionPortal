@@ -17,8 +17,8 @@ class IndexController{
         res.render("courses/bba",{n:name,e:email,id:_id})
     }
     static barch=(req,res)=>{
-        const {name}=req.user
-        res.render("courses/barch",{n:name})
+        const {_id,name,email}=req.user
+        res.render("courses/barch",{n:name,e:email,id:_id})
     }
 
 
@@ -49,9 +49,9 @@ class IndexController{
     static displayUser=async(req,res)=>{
         try{
             // const courseName=await CourseModel.find()
-            const result= await CourseModel.find()
-            // console.log(result)
-            const {name}=req.user
+            const {name,_id}=req.user
+            const result= await CourseModel.find({user_id:_id})
+            console.log(result)
         res.render("index/display",{data:result,n:name})
         }catch(err){
 

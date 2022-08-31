@@ -10,8 +10,8 @@ const CourseSchema =new mongoose.Schema({
     college:{type:String, required:true, trim:true},
     courses:{type:String, required:true, trim:true},
     branch:{type:String, required:true, trim:true},
-    user_id:{type:String, required:true, trim:true}
-   
+    user_id:{type:String, required:true, trim:true},
+    status:{type:String, default:"Pending"}   
 },{timestamps:true})
 
 

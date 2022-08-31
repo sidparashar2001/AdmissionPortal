@@ -1,3 +1,110 @@
-<%- include("../../views/partition/header.ejs") %>
-<h1>Admin dashboard</h1>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    
+    <nav style="opacity: 0.9; background-color: #333;" class="navbar navbar-expand-lg fixed-top navbar-light ">
+        
+      <a class="navbar-brand text-white" href="/admin/dashboard">
+        <img style="width:8%;margin-left: 12px;margin-right: 8px;" src="/images/logo.png"  alt="">Admission Portal
+      </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active ">
+              <a class="nav-link text-white" href="/index">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="/logout" class="nav-link text-white">Log Out</a>
+            </li>
+            <li class="nav-item">
+              <a style="background-color: green; border-radius: 12px;" class="nav-link text-white" href="/admin/edit/<%= id %>">Hello,<%= n %></a>
+            </li>
+            
+          </ul>
+        </div>
+      </nav>
+
+
+<section style="margin-bottom: 4%;" class="login-wrap mtb-40 ">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md">
+                <div class="login-box" style="margin-top: 7%;">
+                    <h1>Displaying Registrations</h1><hr>
+                    <% var i=1 %>
+                    <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Course Name</th>
+                            <th scope="col">E-mail</th>
+                           
+                            <th scope="col">Status</th>
+                            <th scope="col">Comment</th>
+                            <th scope="col"></th>
+                           
+                            <th scope="col">Action</th>
+                         
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <%  data.forEach((item)=>{ %>       
+                             
+                          <tr>
+                            <th scope="row"><%= i++ %></th>
+                            <td><%= item.courses %></td>
+                            <td><%= item.email %></td>
+                      
+                            <% if(item.status==="Accepted") {%>
+                            <td><button class="btn btn-success"><%= item.status %></button></td>
+                            <%  } else{%>
+                              <td><button class="btn btn-danger"><%= item.status %></button></td>
+                              <% } %>
+                            <!-- Start Form tag from here-->
+                            <form action="/admin/update_status/<%= item._id %>" method="POST">
+
+                            
+                            <td><textarea name="comment" ></textarea></td>
+                            <td>
+                              <button name="status" value="Rejected" class="btn btn-danger">Rejected</button>
+                              <button name="status" value="Accepted" class="btn btn-success">Accepted</button>
+                            </td>
+                          </form>
+                            
+                            <td>
+                                <a href="/view_student/<%= item._id %>" class="btn btn-primary btn-sm">View</a>
+                                <a href="/admin/edit_student/<%= item._id %>" class="btn btn-info btn-sm">Edit</a>
+                                <a href="/delete_student/<%= item._id %>" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                           
+                          </tr>
+                     <%   })   %>
+                    </tbody>
+                  </table>
+                  
+
+                    
+                </div>         
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
 <%- include("../../views/partition/footer.ejs") %>
